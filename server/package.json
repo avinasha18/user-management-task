@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "node dist/app.js",
-    "build": "rm -rf dist && tsc",
+    "build": " tsc",
     "postinstall": "bun run build"
   },
   "dependencies": {
