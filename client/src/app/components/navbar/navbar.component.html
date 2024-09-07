@@ -1,0 +1,47 @@
+<nav class="bg-gray-800 p-4 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="text-white text-2xl font-bold">User Management</div>
+      <div class="flex items-center space-x-4">
+        <a 
+          routerLink="/users" 
+          routerLinkActive="text-yellow-400" 
+          class="text-white hover:text-gray-300 transition-colors duration-300"
+          *ngIf="isLoggedIn"
+        >
+          Users
+        </a>
+        <a 
+          routerLink="/profile" 
+          routerLinkActive="text-yellow-400" 
+          class="text-white hover:text-gray-300 transition-colors duration-300"
+          *ngIf="isLoggedIn"
+        >
+          Profile
+        </a>
+        <a 
+          routerLink="/" 
+          routerLinkActive="text-yellow-400" 
+          class="text-white hover:text-gray-300 transition-colors duration-300"
+          *ngIf="!isLoggedIn"
+        >
+          Login
+        </a>
+        <a 
+          routerLink="/register" 
+          routerLinkActive="text-yellow-400" 
+          class="text-white hover:text-gray-300 transition-colors duration-300"
+          *ngIf="!isLoggedIn"
+        >
+          Register
+        </a>
+        <button 
+          (click)="logout()" 
+          class="text-white hover:text-gray-300 transition-colors duration-300"
+          *ngIf="isLoggedIn"
+        >
+          Logout
+        </button>
+      </div>
+    </div>
+  </nav>
+  
