@@ -2,7 +2,7 @@
 import { Server } from '@overnightjs/core';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
-import { UserController } from './controllers/UserController';
+import { UserController } from './controllers/userController';
 import { mongoURI } from './config';
 import cors from 'cors';
 
