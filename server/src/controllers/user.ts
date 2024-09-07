@@ -1,16 +1,16 @@
 import { Controller, Get, Post, Put, Delete, Middleware } from '@overnightjs/core';
 import { Request, Response } from 'express';
-import User from '../models/userModel';
+import User from '../models/userModel.js';
 import jwt from 'jsonwebtoken';
-import { jwtSecret } from '../config';
-import { authMiddleware } from '../middlewares/authMiddleware';
+import { jwtSecret } from '../config.js';
+import { authMiddleware } from '../middlewares/authMiddleware.js';
 
 interface AuthenticatedRequest extends Request {
   userId?: string;
 }
 
 @Controller('api/users')
-export class UserController {
+ class UserController {
   @Post('register')
   async register(req: Request, res: Response): Promise<void> {
     const { username, password, email, address } = req.body;
@@ -114,3 +114,5 @@ export class UserController {
     }
   }
 }
+
+export default UserController

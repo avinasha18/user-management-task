@@ -1,9 +1,8 @@
-// src/app.ts or src/server.ts
 import { Server } from '@overnightjs/core';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
-import { UserController } from './controllers/userController';
-import { mongoURI } from './config';
+import UserController from './controllers/user.js';
+import { mongoURI } from './config.js';
 import cors from 'cors';
 
 class AppServer extends Server {
@@ -18,7 +17,7 @@ class AppServer extends Server {
 
   private setupControllers(): void {
     const userController = new UserController();
-    this.addControllers([userController]);
+    super.addControllers([userController]);
   }
 
   public start(port: number): void {

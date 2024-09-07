@@ -1,18 +1,17 @@
 import jwt from 'jsonwebtoken';
-import { jwtSecret } from '../config';
+import { jwtSecret } from '../config.js';
 export const authMiddleware = (req, res, next) => {
-    var _a;
-    console.log('in auth');
-    const token = (_a = req.headers.authorization) === null || _a === void 0 ? void 0 : _a.split(' ')[1];
+    const token = req.header('Authorization')?.replace('Bearer ', '');
     if (!token) {
-        return res.status(401).json({ error: 'Unauthorized' });
+        res.status(401).json({ error: 'No token, authorization denied' });
+        return;
     }
     try {
         const decoded = jwt.verify(token, jwtSecret);
         req.userId = decoded.id;
         next();
     }
-    catch (error) {
-        res.status(401).json({ error: 'Invalid token' });
+    catch (err) {
+        res.status(401).json({ error: 'Token is not valid' });
     }
 };
