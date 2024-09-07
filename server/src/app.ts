@@ -1,5 +1,6 @@
 import { Server } from '@overnightjs/core';
 import mongoose from 'mongoose';
+import express from 'express';
 import bodyParser from 'body-parser';
 import UserController from './controllers/user.js';
 import { mongoURI } from './config.js';
@@ -10,8 +11,7 @@ class AppServer extends Server {
     super(true);
     this.app.use(bodyParser.json());
     this.app.use(bodyParser.urlencoded({ extended: true }));
-    this.app.use(cors({ origin: '*' }));  
-    this.app.options('*', cors()); 
+    this.app.use(cors());
     this.setupControllers();
   }
 
@@ -32,5 +32,5 @@ mongoose.connect(mongoURI)
   .catch(err => console.log(err));
 
 const server = new AppServer();
-const PORT: number = 5000;
+const PORT: number = process.env.PORT ? parseInt(process.env.PORT) : 5000;
 server.start(PORT);
