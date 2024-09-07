@@ -11,8 +11,8 @@ class AppServer extends Server {
     super(true);
     this.app.use(bodyParser.json());
     this.app.use(bodyParser.urlencoded({ extended: true }));
-    this.app.use(cors({ origin: 'http://localhost:4200' }));
-    this.app.options('*', cors({ origin: 'http://localhost:4200' })); 
+    this.app.use(cors({ origin: '*' }));  
+    this.app.options('*', cors()); 
     this.setupControllers();
   }
 
