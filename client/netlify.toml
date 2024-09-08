@@ -1,7 +1,0 @@
-[build]
-  base = "client/"
-  publish = "client/dist/customer-management"
-  command = "npm run build --prod"
-
-[context.production]
-  environment = { NODE_ENV = "production" }
