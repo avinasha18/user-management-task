@@ -11,10 +11,16 @@ class AppServer extends Server {
     super(true);
     this.app.use(bodyParser.json());
     this.app.use(bodyParser.urlencoded({ extended: true }));
-    this.app.use(cors());
-    this.setupControllers();
+    this.app.use(cors({
+      origin: 'https://user-management-abhi.vercel.app',  // Replace with your frontend's deployed URL
+      credentials: true
+    }));   
+     this.setupControllers();
+     this.app.get('/', (req, res) => {
+      res.send('API is running');
+    });
   }
-
+  
   private setupControllers(): void {
     const userController = new UserController();
     super.addControllers([userController]);

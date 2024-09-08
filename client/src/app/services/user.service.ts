@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'http://localhost:5000/api/users';
+  private apiUrl = 'https://wily-briny-user-management-21486aa2.koyeb.app/api/users';
 
   constructor(private http: HttpClient) {}
 
