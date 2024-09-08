@@ -9,7 +9,7 @@ export class AuthService {
   isLoggedIn = this.loggedIn.asObservable();
 
   constructor() {
-    // Initialize login state from local storage
+   
     this.loggedIn.next(!!localStorage.getItem('token'));
   }
 
