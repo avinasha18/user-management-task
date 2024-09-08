@@ -10,7 +10,8 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "resolveJsonModule": true,
-    "types": ["node", "express"]
+    "types": ["node", "express"],  // Include necessary types here
+    "typeRoots": ["./node_modules/@types"]  // Point to where type definitions are located
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]

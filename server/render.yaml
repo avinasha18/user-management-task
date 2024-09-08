@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: user-management-server
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: mongoURI
+        value: mongodb+srv://amilecorp:2I9huRdQB9abORc3@cluster0.dlnxr.mongodb.net/usermanagement?retryWrites=true&w=majority
