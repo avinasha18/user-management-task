@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "start": "node dist/app.js",
-    "build": " tsc",
-    "postinstall": "bun run build"
+    "build": "tsc",
+    "postinstall": "npm run build"
   },
   "dependencies": {
     "@overnightjs/core": "^1.7.6",
